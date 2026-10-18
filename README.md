@@ -10,22 +10,10 @@ The project uses OpenRefine for data preparation, RDF for semantic representatio
 ## 2. Original dataset
 
 - **Dataset name:** Library Catalogue
-- **Original source:** https://www.kaggle.com/datasets/neramarkovi/library-catalog
+- **Original source:** [Dataset Source](https://www.kaggle.com/datasets/neramarkovi/library-catalog)
 - **Original format:** CSV
 - **Original record count:** 2,104, before any documented row removals
-- **Original license and reuse conditions:** # Released under MIT License
-
-Copyright (c) 2013 Mark Otto.
-
-Copyright (c) 2017 Andrew Fong.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-The original dataset is stored separately from the cleaned version, subject to the source's redistribution conditions.
+- **Original license and reuse conditions:** [MIT](https://www.mit.edu/~amini/LICENSE.md)
 
 ## 3. Data preparation
 
