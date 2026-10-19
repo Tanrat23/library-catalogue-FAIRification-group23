@@ -63,4 +63,8 @@ License applicable to the project's own documentation and other created artifact
 
 ## 9. Citation
 
-[Add a recommended citation for the dataset and the final repository version.]
+**Dataset source**
+
+Library Catalog. Uploaded by Nera Marković. Kaggle. Available at: [Dataset](https://www.kaggle.com/datasets/neramarkovi/library-catalog). Accessed: 19/09/2026.
+
+**Note:** No DOI was provided on the source page. This citation identifies the original dataset using its available source information.
