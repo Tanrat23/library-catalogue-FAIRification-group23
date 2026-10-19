@@ -1,4 +1,4 @@
-# library-catalogue-FAIRification-group23
+# Library Catalogue Data FAIRification
 FAIRification of a library catalogue dataset using OpenRefine, RDF, semantic metadata and a FAIR Data Point.
 
 ## 1. Project overview
