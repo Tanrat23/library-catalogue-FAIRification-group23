@@ -17,26 +17,23 @@ The project uses OpenRefine for data preparation, RDF for semantic representatio
 
 ## 3. Data preparation
 
-The catalogue was cleaned using OpenRefine. The process included [describe the transformations actually performed].
-
+The catalogue was cleaned using OpenRefine. 
 The cleaning decisions, field definitions and validation results are documented in the `documentation/` directory.
 
 ## 4. Repository structure
 
-- `data/original/` — original dataset, subject to its license
-- `data/fairified/` — cleaned tabular dataset
-- `data/rdf/` — RDF/Turtle representation of the catalogue
+- `data/original/` — original dataset, cleaned tabular dataset and RDF/Turtle representation of the catalogue
 - `ontology/` — project-specific ontology
 - `metadata-schemas/` — Dataset and Distribution metadata schemas
 - `fdp-metadata/` — exported FAIR Data Point metadata records
-- `documentation/` — data dictionary, cleaning methodology and evaluation
+- `documentation/` — cleaning methodology and evaluation
 - `report/` — final project report
 
 ## 5. Semantic model and persistent identifiers
 
 **Group number:** 23
 
-**Ontology IRI:**
+**Ontology:**
 https://w3id.org/FAIR-course-UT/2025-2026/group23/ont
 
 **Data namespace:**
@@ -52,7 +49,7 @@ FDP URL: [Add once available]
 
 ## 7. Interoperability
 
-The project will investigate linking catalogue records with an external bibliographic dataset using ISBN and other suitable bibliographic properties.
+The project will investigate linking catalogue records with an external bibliographic dataset using suitable bibliographic properties.
 
 External dataset: Open Library
 
@@ -60,7 +57,7 @@ Integration findings: [Add results after testing]
 
 ## 8. License and attribution
 
-Original dataset source and license: [Add verified details]
+Original dataset source and license: [MIT](https://www.mit.edu/~amini/LICENSE.md)
 
 License applicable to the project's own documentation and other created artifacts: [Add the licence agreed upon by the group]
 
