@@ -1,0 +1,686 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "Thumbnail",
+    "description": "Remove column Thumbnail"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Dimensions",
+    "description": "Remove column Dimensions"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Last borrowed_date",
+    "description": "Remove column Last borrowed_date"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Total-copies",
+    "description": "Remove column Total-copies"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Page count",
+    "description": "Remove column Page count"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Classic"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Classics"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Religion, Spirituality"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Religion & Spirituality"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Spirituality"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Religion & Spirituality"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Religion"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Religion & Spirituality"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Classics"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Classic Literature"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Music/Songbooks"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Music"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Children's Stories"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Children's Fiction"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Epic Poetry"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Poetry"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Flagged rows",
+          "expression": "row.flagged",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Title",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Title using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "author",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column author using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column genre using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Section",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Section using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Rating",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Rating using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Language",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ISBN",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ISBN using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "subjects",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column subjects using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "catalog Position",
+    "expression": "grel:value.trim().replace(/\\s+/, \" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column catalog Position using expression grel:value.trim().replace(/\\s+/, \" \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Title",
+    "expression": "grel:value.trim().replace(/\\s+/, \" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Title using expression grel:value.trim().replace(/\\s+/, \" \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Language",
+    "expression": "grel:value.trim().toLowercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language using expression grel:value.trim().toLowercase()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Language",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "eng"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "en"
+      }
+    ],
+    "description": "Mass edit cells in column Language"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Title",
+          "expression": "isBlank(value)",
+          "columnName": "Title",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Year Published",
+    "expression": "grel:if(\n  isBlank(value),\n  null,\n  value.toString().trim().toNumber()\n)",
+    "onError": "set-to-blank",
+    "newColumnName": "year_published_clean",
+    "columnInsertIndex": 4,
+    "description": "Create column year_published_clean at index 4 based on column Year Published using expression grel:if(\n  isBlank(value),\n  null,\n  value.toString().trim().toNumber()\n)"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Year Published",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "2999"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column Year Published"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Year Published",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "2119"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column Year Published"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Year Published",
+    "description": "Remove column Year Published"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "year_published_clean",
+    "newColumnName": "Year Published",
+    "description": "Rename column year_published_clean to Year Published"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Times borrowed",
+    "expression": "grel:if(\n  isBlank(value),\n  null,\n  value.toString().trim().toNumber()\n)",
+    "onError": "set-to-blank",
+    "newColumnName": "Times_borrowed_clean",
+    "columnInsertIndex": 7,
+    "description": "Create column Times_borrowed_clean at index 7 based on column Times borrowed using expression grel:if(\n  isBlank(value),\n  null,\n  value.toString().trim().toNumber()\n)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Times borrowed",
+    "description": "Remove column Times borrowed"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Times_borrowed_clean",
+    "newColumnName": "Times Borrowed",
+    "description": "Rename column Times_borrowed_clean to Times Borrowed"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rating",
+    "expression": "grel:value.match(/(?i)^\\s*(\\d+(?:\\.\\d+)?)\\s*out of\\s*5\\s*stars\\s*$/)[0].toNumber()",
+    "onError": "set-to-blank",
+    "newColumnName": "Ratings clean",
+    "columnInsertIndex": 8,
+    "description": "Create column Ratings clean at index 8 based on column Rating using expression grel:value.match(/(?i)^\\s*(\\d+(?:\\.\\d+)?)\\s*out of\\s*5\\s*stars\\s*$/)[0].toNumber()"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Rating",
+    "description": "Remove column Rating"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Ratings clean",
+    "newColumnName": "Ratings",
+    "description": "Rename column Ratings clean to Ratings"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Ratings count",
+    "expression": "grel:value.match(/(?i)^\\s*(\\d+)\\s*ratings?\\s*$/)[0].toNumber()",
+    "onError": "set-to-blank",
+    "newColumnName": "Ratings count clean",
+    "columnInsertIndex": 9,
+    "description": "Create column Ratings count clean at index 9 based on column Ratings count using expression grel:value.match(/(?i)^\\s*(\\d+)\\s*ratings?\\s*$/)[0].toNumber()"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Ratings count",
+    "description": "Remove column Ratings count"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Ratings count clean",
+    "newColumnName": "Ratings count",
+    "description": "Rename column Ratings count clean to Ratings count"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Price",
+    "expression": "grel:if(\n  isBlank(value),\n  null,\n  if(\n    value.toString().trim().match(/^\\$?\\s*\\d+(?:,\\d{3})*(?:\\.\\d+)?\\s*$/) != null,\n    value.toString().replace(\"$\", \"\").replace(\",\", \"\").trim().toNumber(),\n    null\n  )\n)",
+    "onError": "set-to-blank",
+    "newColumnName": "Price clean",
+    "columnInsertIndex": 10,
+    "description": "Create column Price clean at index 10 based on column Price using expression grel:if(\n  isBlank(value),\n  null,\n  if(\n    value.toString().trim().match(/^\\$?\\s*\\d+(?:,\\d{3})*(?:\\.\\d+)?\\s*$/) != null,\n    value.toString().replace(\"$\", \"\").replace(\",\", \"\").trim().toNumber(),\n    null\n  )\n)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Price",
+    "description": "Remove column Price"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Price clean",
+    "newColumnName": "Price",
+    "description": "Rename column Price clean to Price"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Section",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Children's"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Children"
+      }
+    ],
+    "description": "Mass edit cells in column Section"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Section",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Children's Fiction"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Children"
+      }
+    ],
+    "description": "Mass edit cells in column Section"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Section",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Young Adult (YA)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Young Adult"
+      }
+    ],
+    "description": "Mass edit cells in column Section"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "catalog Position",
+    "newColumnName": "catalogue_position",
+    "description": "Rename column catalog Position to catalogue_position"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Title",
+    "newColumnName": "title",
+    "description": "Rename column Title to title"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Year Published",
+    "newColumnName": "year_published",
+    "description": "Rename column Year Published to year_published"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Section",
+    "newColumnName": "section",
+    "description": "Rename column Section to section"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Times Borrowed",
+    "newColumnName": "times_borrowed",
+    "description": "Rename column Times Borrowed to times_borrowed"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Ratings",
+    "newColumnName": "ratings",
+    "description": "Rename column Ratings to ratings"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Ratings count",
+    "newColumnName": "ratings_count",
+    "description": "Rename column Ratings count to ratings_count"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Price",
+    "newColumnName": "price",
+    "description": "Rename column Price to price"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Language",
+    "newColumnName": "language",
+    "description": "Rename column Language to language"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "ISBN",
+    "newColumnName": "isbn",
+    "description": "Rename column ISBN to isbn"
+  }
+]
