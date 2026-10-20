@@ -1,6 +1,9 @@
 # Library Catalogue Data FAIRification
 FAIRification of a library catalogue dataset using OpenRefine, RDF, semantic metadata and a FAIR Data Point.
 
+<img width="1365" height="630" alt="image" src="https://github.com/user-attachments/assets/97b14589-85d4-4b79-8bc8-fe0b69014d5b" />
+
+
 ## 1. Project overview
 
 This project aims to improve the Findability, Accessibility, Interoperability and Reusability (FAIRness) of a library catalogue dataset.
