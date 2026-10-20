@@ -682,5 +682,45 @@
     "oldColumnName": "ISBN",
     "newColumnName": "isbn",
     "description": "Rename column ISBN to isbn"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Historical"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Historical Fiction"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "genre",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Children's Literature"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Children's Fiction"
+      }
+    ],
+    "description": "Mass edit cells in column genre"
   }
 ]
