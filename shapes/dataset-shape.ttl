@@ -1,0 +1,119 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix dash:    <http://datashapes.org/dash#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix shp:     <https://w3id.org/FAIR-course-UT/2026/group23/shapes#> .
+
+# ---------------------------------------------------------------------------
+# Metadata schema for the DATASET record (dcat:Dataset).
+#
+# Reading guide: minCount 1 = "the bouncer will not let a record in without it".
+# Each constraint is tagged with the FAIR sub-principle it protects.
+#
+# FAIR Data Point notes:
+#  - A FDP shape extends the default one by targeting the same class (dcat:Dataset).
+#  - The FDP cannot reliably OVERRIDE a property that its default shape already
+#    declares, so when you paste this into the FDP, compare with the default Dataset
+#    schema first and leave out any property the default already has.
+#  - dash:editor / dash:viewer lines only tell the FDP web form which input widget
+#    to draw. They do not change validation. Copy the exact names your FDP uses
+#    from its default shape if they differ.
+# ---------------------------------------------------------------------------
+
+shp:DatasetShape a sh:NodeShape ;
+    sh:targetClass dcat:Dataset ;
+
+    sh:property [   # F2: findable by name
+        sh:path dcterms:title ;
+        sh:name "Title" ;
+        sh:nodeKind sh:Literal ; sh:minCount 1 ;
+        dash:editor dash:TextFieldEditor ; dash:viewer dash:LiteralViewer ;
+    ] ;
+    sh:property [   # F2: rich description
+        sh:path dcterms:description ;
+        sh:name "Description" ;
+        sh:nodeKind sh:Literal ; sh:minCount 1 ;
+        dash:editor dash:TextAreaEditor ; dash:viewer dash:LiteralViewer ;
+    ] ;
+    sh:property [   # F1: persistent identifier (our W3ID IRI)
+        sh:path dcterms:identifier ;
+        sh:name "Identifier" ;
+        sh:nodeKind sh:IRIOrLiteral ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # R1.1: clear licence
+        sh:path dcterms:license ;
+        sh:name "License" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # R1: who is responsible
+        sh:path dcterms:publisher ;
+        sh:name "Publisher" ;
+        sh:minCount 1 ;
+        sh:node shp:AgentShape ;
+    ] ;
+    sh:property [   # R1.2: when
+        sh:path dcterms:issued ;
+        sh:name "Issued" ;
+        sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:dateTime ] ) ; sh:minCount 1 ; sh:maxCount 1 ;
+        dash:editor dash:DatePickerEditor ; dash:viewer dash:LiteralViewer ;
+    ] ;
+    sh:property [   # R1.2: provenance, where the data came from
+        sh:path dcterms:source ;
+        sh:name "Source" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # I2 / R1.3: the vocabulary the data follows
+        sh:path dcterms:conformsTo ;
+        sh:name "Conforms to" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # F2: language(s) of the content, as IRIs
+        sh:path dcterms:language ;
+        sh:name "Language" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # F2: topic from a controlled list
+        sh:path dcat:theme ;
+        sh:name "Theme" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # F2: free-text search words
+        sh:path dcat:keyword ;
+        sh:name "Keyword" ;
+        sh:datatype xsd:string ; sh:minCount 1 ;
+        dash:editor dash:TextFieldEditor ; dash:viewer dash:LiteralViewer ;
+    ] ;
+    sh:property [   # A1: where a human can go
+        sh:path dcat:landingPage ;
+        sh:name "Landing page" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # R1: who to ask
+        sh:path dcat:contactPoint ;
+        sh:name "Contact point" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # F3: metadata names the data it describes
+        sh:path dcat:distribution ;
+        sh:name "Distribution" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:viewer dash:URIViewer ;
+    ] .
+
+# A publisher is an agent that has a name (blank node or IRI both fine).
+shp:AgentShape a sh:NodeShape ;
+    sh:property [
+        sh:path foaf:name ;
+        sh:datatype xsd:string ; sh:minCount 1 ;
+        sh:message "A publisher needs a foaf:name." ;
+    ] .

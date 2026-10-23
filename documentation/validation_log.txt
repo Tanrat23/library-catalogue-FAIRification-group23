@@ -1,0 +1,33 @@
+[PASS] A. ontology/library-ontology.ttl parses  (70 triples)
+[PASS] A. data/rdf/library.ttl parses  (37172 triples)
+[PASS] A. shapes/book-shape.ttl parses  (79 triples)
+[PASS] A. shapes/dataset-shape.ttl parses  (111 triples)
+[PASS] A. shapes/distribution-shape.ttl parses  (87 triples)
+[PASS] A. metadata/dataset-record.ttl parses  (49 triples)
+[PASS] B. library.ttl conforms to book-shape.ttl
+[PASS] C1. every subject IRI lives in the data# namespace  (0 outside)
+[PASS] C2. no illegal characters in any IRI  (0 bad)
+[PASS] C3. no dangling references (author/genre/section all described)  (0 dangling)
+[PASS] C4. every lib: term used in the data is declared in the ontology
+[PASS] C5. catalogue positions are unique  (2077 values)
+[PASS] C6. each book IRI is built from its catalogue position  (0 mismatches)
+[PASS] C7. number of books equals number of CSV rows  (2077 vs 2077)
+[PASS] D. dataset-record.ttl conforms to Dataset and Distribution shapes
+[PASS] D2. dcat:byteSize of the RDF distribution equals the real file size  (metadata says 2492380, file has 2492380)
+
+Self-test: each broken record below MUST be rejected
+[PASS] E. a correct sample book is accepted
+[PASS] E. book rejected: year 2999
+[PASS] E. book rejected: negative price
+[PASS] E. book rejected: title missing
+[PASS] E. book rejected: language in capitals
+[PASS] E. book rejected: author as plain text
+[PASS] E. book rejected: bad catalogue position
+[PASS] E. metadata rejected: dataset without licence
+[PASS] E. metadata rejected: dataset without keywords
+[PASS] E. metadata rejected: distribution without media type
+[PASS] E. metadata rejected: distribution without download URL
+[PASS] E. metadata rejected: media type as plain text
+[PASS] E. metadata rejected: wrong byte size
+
+All checks passed.

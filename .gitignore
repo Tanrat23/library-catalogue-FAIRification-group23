@@ -1,0 +1,10 @@
+# Private Python workspace and caches
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# The RDF/XML copy that is only used to upload the ontology to WebProtege
+*.owl

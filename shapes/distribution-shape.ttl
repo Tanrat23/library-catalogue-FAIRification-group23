@@ -1,0 +1,86 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix dash:    <http://datashapes.org/dash#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix shp:     <https://w3id.org/FAIR-course-UT/2026/group23/shapes#> .
+
+# ---------------------------------------------------------------------------
+# Metadata schema for each DISTRIBUTION record (dcat:Distribution).
+# A distribution is one downloadable file of the dataset: the cleaned CSV,
+# the original CSV, the Turtle file.
+#
+# Same FAIR Data Point notes as dataset-shape.ttl apply: extend, do not override,
+# and compare with the FDP's default Distribution schema before pasting.
+# ---------------------------------------------------------------------------
+
+shp:DistributionShape a sh:NodeShape ;
+    sh:targetClass dcat:Distribution ;
+
+    sh:property [   # F2
+        sh:path dcterms:title ;
+        sh:name "Title" ;
+        sh:nodeKind sh:Literal ; sh:minCount 1 ;
+        dash:editor dash:TextFieldEditor ; dash:viewer dash:LiteralViewer ;
+    ] ;
+    sh:property [   # F2
+        sh:path dcterms:description ;
+        sh:name "Description" ;
+        sh:nodeKind sh:Literal ;
+        dash:editor dash:TextAreaEditor ; dash:viewer dash:LiteralViewer ;
+    ] ;
+    sh:property [   # F1
+        sh:path dcterms:identifier ;
+        sh:name "Identifier" ;
+        sh:nodeKind sh:IRIOrLiteral ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # R1.1: the file carries its own licence
+        sh:path dcterms:license ;
+        sh:name "License" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # R1.2
+        sh:path dcterms:issued ;
+        sh:name "Issued" ;
+        sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:dateTime ] ) ; sh:minCount 1 ; sh:maxCount 1 ;
+        dash:editor dash:DatePickerEditor ; dash:viewer dash:LiteralViewer ;
+    ] ;
+    sh:property [   # A1: where to get it (opens in a browser)
+        sh:path dcat:accessURL ;
+        sh:name "Access URL" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # A1: direct file link (this is the W3ID URL, so it never breaks)
+        sh:path dcat:downloadURL ;
+        sh:name "Download URL" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # I1: what machine-readable format, as an IANA media type IRI
+        sh:path dcat:mediaType ;
+        sh:name "Media type" ;
+        sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:pattern "^https://www\\.iana\\.org/assignments/media-types/" ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # I1: same idea, EU file-type vocabulary
+        sh:path dcterms:format ;
+        sh:name "Format" ;
+        sh:nodeKind sh:IRI ; sh:maxCount 1 ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] ;
+    sh:property [   # helps people judge the download
+        sh:path dcat:byteSize ;
+        sh:name "Byte size" ;
+        sh:datatype xsd:nonNegativeInteger ; sh:maxCount 1 ;
+        dash:editor dash:TextFieldEditor ; dash:viewer dash:LiteralViewer ;
+    ] ;
+    sh:property [   # I2 / R1.3: which vocabulary or dictionary the file follows
+        sh:path dcterms:conformsTo ;
+        sh:name "Conforms to" ;
+        sh:nodeKind sh:IRI ;
+        dash:editor dash:URIEditor ; dash:viewer dash:URIViewer ;
+    ] .

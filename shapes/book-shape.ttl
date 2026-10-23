@@ -1,0 +1,79 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix lib:    <https://w3id.org/FAIR-course-UT/2026/group23/ont#> .
+@prefix shp:    <https://w3id.org/FAIR-course-UT/2026/group23/shapes#> .
+
+# ---------------------------------------------------------------------------
+# Quality gate for the RECORD-level RDF (library.ttl).
+# Used by scripts/validate.py. Not loaded into the FAIR Data Point.
+# ---------------------------------------------------------------------------
+
+shp:LibraryBookShape a sh:NodeShape ;
+    sh:targetClass lib:LibraryBook ;
+    sh:property [
+        sh:path lib:cataloguePosition ;
+        sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:pattern "^A[0-9]+-B[0-9]+-[0-9]{4}$" ;
+        sh:message "Every book needs exactly one catalogue position like A1-B1-0001." ;
+    ] ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ;
+        sh:message "Every book needs exactly one non-empty title." ;
+    ] ;
+    sh:property [
+        sh:path schema:author ;
+        sh:nodeKind sh:IRI ;
+        sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] ) ;
+        sh:message "An author must be a Person or an Organization resource, not a plain string." ;
+    ] ;
+    sh:property [
+        sh:path schema:datePublished ;
+        sh:datatype xsd:gYear ; sh:maxCount 1 ;
+        sh:pattern "^(1[0-9]{3}|20[01][0-9]|202[0-6])$" ;
+        sh:message "Publication year must be between 1000 and 2026." ;
+    ] ;
+    sh:property [
+        sh:path schema:genre ;
+        sh:class lib:Genre ; sh:maxCount 1 ;
+        sh:message "Genre must point to a lib:Genre concept." ;
+    ] ;
+    sh:property [
+        sh:path lib:inSection ;
+        sh:class lib:Section ; sh:maxCount 1 ;
+        sh:message "Section must point to a lib:Section concept." ;
+    ] ;
+    sh:property [
+        sh:path lib:timesBorrowed ;
+        sh:datatype xsd:nonNegativeInteger ; sh:maxCount 1 ;
+        sh:message "Times borrowed must be a whole number, 0 or more." ;
+    ] ;
+    sh:property [
+        sh:path lib:price ;
+        sh:datatype xsd:decimal ; sh:minInclusive 0 ; sh:maxCount 1 ;
+        sh:message "Price must be a decimal number, 0 or more." ;
+    ] ;
+    sh:property [
+        sh:path schema:inLanguage ;
+        sh:datatype xsd:string ; sh:maxCount 1 ;
+        sh:pattern "^[a-z]{2,3}(-[a-z]{2,4})?$" ;
+        sh:message "Language must be a lowercase language code such as en or pt-br." ;
+    ] ;
+    sh:property [
+        sh:path schema:aggregateRating ;
+        sh:node shp:AggregateRatingShape ; sh:maxCount 1 ;
+    ] .
+
+shp:AggregateRatingShape a sh:NodeShape ;
+    sh:property [
+        sh:path schema:ratingValue ;
+        sh:datatype xsd:decimal ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:minInclusive 1 ; sh:maxInclusive 5 ;
+        sh:message "Rating value must be a decimal from 1 to 5." ;
+    ] ;
+    sh:property [
+        sh:path schema:ratingCount ;
+        sh:datatype xsd:integer ; sh:maxCount 1 ; sh:minInclusive 1 ;
+        sh:message "Rating count must be a whole number, 1 or more." ;
+    ] .

@@ -1,0 +1,109 @@
+@prefix lib:     <https://w3id.org/FAIR-course-UT/2026/group23/ont#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema:  <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# ---------------------------------------------------------------------------
+# Library Catalogue Ontology (draft 0.1.0)
+#
+# Design rule: reuse Schema.org wherever it already says what we mean, and add
+# our own terms (prefix lib:) only for what Schema.org cannot express.
+#   Reused from Schema.org : Book, Person, Organization, AggregateRating,
+#                            name, author, datePublished, genre, inLanguage,
+#                            keywords, aggregateRating, ratingValue, ratingCount
+#   Added by us (lib:)     : LibraryBook, Section, Genre, cataloguePosition,
+#                            timesBorrowed, price, recordedIsbn, inSection
+# ---------------------------------------------------------------------------
+
+<https://w3id.org/FAIR-course-UT/2026/group23/ont> a owl:Ontology ;
+    dcterms:title "Library Catalogue Ontology"@en ;
+    dcterms:description "A small ontology that extends Schema.org with the terms a library catalogue needs: where a book is shelved, how often it was borrowed and what it cost."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:creator "Prutha Vijaykumar Thakkar" , "Rattan Kumar" .
+
+# Annotation properties used in the header above (declared so Protege does not warn)
+dcterms:title       a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:license     a owl:AnnotationProperty .
+dcterms:created     a owl:AnnotationProperty .
+dcterms:creator     a owl:AnnotationProperty .
+
+# ---------------------------------------------------------------------------
+# External classes we build on (declared, not redefined)
+# ---------------------------------------------------------------------------
+
+schema:Book a owl:Class ;
+    rdfs:label "Book"@en ;
+    rdfs:isDefinedBy <https://schema.org/> .
+
+skos:Concept a owl:Class ;
+    rdfs:label "Concept"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core#> .
+
+# ---------------------------------------------------------------------------
+# Our classes
+# ---------------------------------------------------------------------------
+
+lib:LibraryBook a owl:Class ;
+    rdfs:subClassOf schema:Book ;
+    rdfs:label "Library book"@en ;
+    rdfs:comment "A book as recorded in this library's catalogue. One row of the cleaned catalogue CSV is one LibraryBook."@en ;
+    rdfs:isDefinedBy <https://w3id.org/FAIR-course-UT/2026/group23/ont> .
+
+lib:Section a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    owl:disjointWith lib:Genre ;
+    rdfs:label "Section"@en ;
+    rdfs:comment "An area of the library where books are shelved, for example Fiction or Children. Modelled as a SKOS concept so sections can be listed and reused."@en ;
+    rdfs:isDefinedBy <https://w3id.org/FAIR-course-UT/2026/group23/ont> .
+
+lib:Genre a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Genre"@en ;
+    rdfs:comment "A literary genre label from the catalogue, for example Drama or Poetry. Modelled as a SKOS concept so spelling variants become visible and fixable in one place."@en ;
+    rdfs:isDefinedBy <https://w3id.org/FAIR-course-UT/2026/group23/ont> .
+
+# ---------------------------------------------------------------------------
+# Our properties
+# ---------------------------------------------------------------------------
+
+lib:cataloguePosition a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain lib:LibraryBook ;
+    rdfs:range xsd:string ;
+    rdfs:label "catalogue position"@en ;
+    rdfs:comment "The unique shelf-style code of a book in the catalogue, for example A1-B1-0001. This is the identifier we build every book URI from."@en ;
+    rdfs:isDefinedBy <https://w3id.org/FAIR-course-UT/2026/group23/ont> .
+
+lib:timesBorrowed a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain lib:LibraryBook ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "times borrowed"@en ;
+    rdfs:comment "How many times the book has been borrowed, as recorded in the source catalogue."@en ;
+    rdfs:isDefinedBy <https://w3id.org/FAIR-course-UT/2026/group23/ont> .
+
+lib:price a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain lib:LibraryBook ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "price"@en ;
+    rdfs:comment "Price of the book as recorded in the source catalogue. The source does not state a currency, so none is asserted."@en ;
+    rdfs:isDefinedBy <https://w3id.org/FAIR-course-UT/2026/group23/ont> .
+
+lib:recordedIsbn a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain lib:LibraryBook ;
+    rdfs:range xsd:string ;
+    rdfs:label "recorded ISBN"@en ;
+    rdfs:comment "The ISBN text exactly as found in the source. The values have 12 digits, so they are not valid ISBN-13 numbers and must not be used for linking."@en ;
+    rdfs:isDefinedBy <https://w3id.org/FAIR-course-UT/2026/group23/ont> .
+
+lib:inSection a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain lib:LibraryBook ;
+    rdfs:range lib:Section ;
+    rdfs:label "in section"@en ;
+    rdfs:comment "Links a book to the library section where it is shelved."@en ;
+    rdfs:isDefinedBy <https://w3id.org/FAIR-course-UT/2026/group23/ont> .
