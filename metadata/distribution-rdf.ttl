@@ -32,7 +32,66 @@
 
 <http://localhost:8080/distribution/e45d2a4e-f664-43ef-bdf0-077521a86c99#identifier>
   a <http://purl.org/spar/datacite/Identifier>;
-  dcterms:identifier "http://localhost:8080/distribution/e45d2a4e-f664-43ef-bdf0-077521a86c99" .
+  dcterms:identifier "@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+<http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072> a dcat:Resource,
+    dcat:Dataset;
+  dcterms:accessRights <http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072#accessRights>;
+  dcterms:conformsTo <http://localhost:8080/profile/2f08228e-1789-40f8-84cd-28e3288c3604>,
+    <http://localhost:8080/profile/2f08228e-1789-40f8-84cd-28e3288c3604>;
+  dcterms:description "A library catalogue of 2,077 books cleaned from the Kaggle 'Library Catalog' dataset and published as RDF (Schema.org plus a small library ontology), with persistent W3ID identifiers. The unchanged original CSV is the second distribution.";
+  dcterms:isPartOf <http://localhost:8080/catalog/8f3a3d32-e36c-4ba5-982f-0f312961a72d>;
+  dcterms:issued "2026-10-21T22:00:00Z"^^xsd:dateTime;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>;
+  dcterms:license <https://spdx.org/licenses/MIT>;
+  dcterms:modified "2026-10-22T22:00:00Z"^^xsd:dateTime;
+  dcterms:publisher [ a foaf:Agent;
+      foaf:name "Group 23, FAIR Data Engineering, Q1 2026, University of Twente"
+    ];
+  dcterms:title "Library Catalogue Dataset (FAIRified)";
+  dcat:contactPoint <mailto:p.v.thakkar@student.utwente.nl>, <r.kumar-5@student.utwente.nl>;
+  dcat:keyword "FAIR", "Schema.org", "books", "catalogue", "library";
+  dcat:landingPage <https://github.com/Tanrat23/library-catalogue-FAIRification-group23>;
+  dcat:theme <http://publications.europa.eu/resource/authority/data-theme/EDUC>;
+  dcat:version "1.0";
+  <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072#identifier>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Library Catalogue Dataset (FAIRified)";
+  <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072/metrics/445c0a70d1e214e545b261559e2842f4>,
+    <http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
+  <https://w3id.org/fdp/fdp-o#metadataIssued> "2026-10-23T16:24:40.291765758Z"^^xsd:dateTime;
+  <https://w3id.org/fdp/fdp-o#metadataModified> "2026-10-23T16:33:10.258554186Z"^^xsd:dateTime .
+
+<http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072#accessRights>
+  a dcterms:RightsStatement;
+  dcterms:description "This resource has no access restriction" .
+
+<http://localhost:8080/distribution/> a ldp:DirectContainer, ldp:DirectContainer;
+  dcterms:title "Distributions", "Distributions";
+  ldp:hasMemberRelation dcat:distribution, dcat:distribution;
+  ldp:membershipResource <http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072>,
+    <http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072>;
+  ldp:contains <http://localhost:8080/distribution/c4452e99-c484-40c9-aec5-6eb6a63c36f3>,
+    <http://localhost:8080/distribution/e45d2a4e-f664-43ef-bdf0-077521a86c99> .
+
+<http://localhost:8080/profile/2f08228e-1789-40f8-84cd-28e3288c3604> <http://www.w3.org/2000/01/rdf-schema#label>
+    "Dataset Profile", "Dataset Profile" .
+
+<http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072#identifier> a
+    <http://purl.org/spar/datacite/Identifier>;
+  dcterms:identifier "https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl" .
+
+<http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072/metrics/445c0a70d1e214e545b261559e2842f4>
+  <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt>;
+  <http://semanticscience.org/resource/SIO_000628> <https://www.ietf.org/rfc/rfc3986.txt> .
+
+<http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072/metrics/5d27e854a9e78eb3f663331cd47cdc13>
+  <http://semanticscience.org/resource/SIO_000332> <https://www.wikidata.org/wiki/Q8777>;
+  <http://semanticscience.org/resource/SIO_000628> <https://www.wikidata.org/wiki/Q8777> .
+" .
 
 <http://localhost:8080/distribution/e45d2a4e-f664-43ef-bdf0-077521a86c99#accessRights>
   a dcterms:RightsStatement;
