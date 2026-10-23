@@ -19,7 +19,7 @@
       foaf:name "Group 23, FAIR Data Engineering, Q1 2026, University of Twente"
     ];
   dcterms:title "Library Catalogue Dataset (FAIRified)";
-  dcat:contactPoint <mailto:p.v.thakkar@student.utwente.nl>;
+  dcat:contactPoint <mailto:p.v.thakkar@student.utwente.nl>, <r.kumar-5@student.utwente.nl>;
   dcat:keyword "FAIR", "Schema.org", "books", "catalogue", "library";
   dcat:landingPage <https://github.com/Tanrat23/library-catalogue-FAIRification-group23>;
   dcat:theme <http://publications.europa.eu/resource/authority/data-theme/EDUC>;
@@ -48,7 +48,7 @@
 
 <http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072#identifier> a
     <http://purl.org/spar/datacite/Identifier>;
-  dcterms:identifier "http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072" .
+  dcterms:identifier "https://w3id.org/FAIR-course-UT/2026/group23/dataset" .
 
 <http://localhost:8080/dataset/9202feec-8371-4ab6-b3f0-9bbf4d9e8072/metrics/445c0a70d1e214e545b261559e2842f4>
   <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt>;
