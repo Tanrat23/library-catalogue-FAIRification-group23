@@ -264,7 +264,7 @@ SELECT ?section (AVG(?loans) AS ?average_loans) WHERE {
 | no match | 165 |
 | errors | 0 |
 | authors linked | 763 persons and 34 organisations (806 links) |
-| precision | not measured yet: 30 randomly chosen matches in `data/openlibrary_links_review_sample.csv` still have to be checked by hand |
+| precision | 30 of 30 randomly chosen matches were correct (100.0%) when Person 2 checked them by hand on 24 October 2026. A match counts as correct when the Open Library page is the same book (same title and author, any edition). With only 30 checked matches the true precision could still be as low as about 89% (95% confidence, Wilson interval) |
 
 Coverage per section (query B below):
 
@@ -397,7 +397,7 @@ python scripts/draw_ontology.py ontology/library-ontology.ttl documentation/onto
 - **ISBN values are not usable for linking.** They have 12 digits, so they are kept as text only.
 - **Prices:** 24 values are above 1000, 12 of them first editions in the Rare Books section (A7-B4). They are kept as in the source, and no currency is known.
 - **Rating scale** is assumed, see decision 12.
-- **Open Library links:** 1912 of 2077 books (92.1%) are linked. Precision: not measured yet: 30 randomly chosen matches in `data/openlibrary_links_review_sample.csv` still have to be checked by hand. A hit needs title and author to agree, so a wrong match is possible, and the hand check measures how often.
+- **Open Library links:** 1912 of 2077 books (92.1%) are linked. Precision: 30 of 30 randomly chosen matches were correct (100.0%) when Person 2 checked them by hand on 24 October 2026. A match counts as correct when the Open Library page is the same book (same title and author, any edition). With only 30 checked matches the true precision could still be as low as about 89% (95% confidence, Wilson interval). A hit needs title and author to agree, so a wrong match is possible, and the hand check measures how often.
 - **FAIR Data Point records.** The three files in `metadata/` are exports made by Person 1. Their record IRIs start with `http://localhost:8080` (a local installation); the persistent W3ID links are in the identifier, download URL and access URL. `scripts/validate.py` checks them (F1 to F7) and prints WARN lines for what is still open: media type stored as text, `dcat:format` instead of `dcterms:format`, no source and no byte size.
 - **Shapes and FAIR Data Point schemas are not aligned yet.** `shapes/dataset-shape.ttl` and `shapes/distribution-shape.ttl` were written before the FAIR Data Point existed. The FAIR Data Point keeps the identifier in a sub-record and links distributions through a container, so the shapes cannot be pasted into it unchanged. Editing the FAIR Data Point schemas and saving them in the repository is still open.
 
