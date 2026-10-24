@@ -19,7 +19,7 @@
   dcat:accessURL <https://w3id.org/FAIR-course-UT/2026/group23/distribution/original-csv>;
   dcat:downloadURL <https://w3id.org/FAIR-course-UT/2026/group23/distribution/original-csv>;
   dcat:format "http://publications.europa.eu/resource/authority/file-type/CSV";
-  dcat:mediaType "CSV";
+  dcat:mediaType "https://www.iana.org/assignments/media-types/text/csv";
   dcat:version "1.0";
   <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/distribution/c4452e99-c484-40c9-aec5-6eb6a63c36f3#identifier>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Original catalogue CSV";
