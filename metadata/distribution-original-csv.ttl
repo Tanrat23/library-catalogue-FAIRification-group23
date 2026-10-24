@@ -53,7 +53,7 @@
       foaf:name "Group 23, FAIR Data Engineering, Q1 2026, University of Twente"
     ];
   dcterms:title "Library Catalogue Dataset (FAIRified)";
-  dcat:contactPoint <mailto:p.v.thakkar@student.utwente.nl>, <r.kumar-5@student.utwente.nl>;
+  dcat:contactPoint <mailto:p.v.thakkar@student.utwente.nl>;
   dcat:keyword "FAIR", "Schema.org", "books", "catalogue", "library";
   dcat:landingPage <https://github.com/Tanrat23/library-catalogue-FAIRification-group23>;
   dcat:theme <http://publications.europa.eu/resource/authority/data-theme/EDUC>;
