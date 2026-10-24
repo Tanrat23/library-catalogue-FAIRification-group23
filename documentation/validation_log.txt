@@ -5,8 +5,8 @@
 [PASS] A. shapes/distribution-shape.ttl parses  (87 triples)
 [PASS] A. shapes/test-fixtures/dataset-record-draft.ttl parses  (47 triples)
 [PASS] A. metadata/dataset-record.ttl parses  (44 triples)
-[FAIL] A. metadata/distribution-original-csv.ttl parses  (line 35: newline found in string literal)
-[FAIL] A. metadata/distribution-rdf.ttl parses  (line 35: newline found in string literal)
+[PASS] A. metadata/distribution-original-csv.ttl parses  (34 triples)
+[PASS] A. metadata/distribution-rdf.ttl parses  (34 triples)
 [PASS] B. library.ttl conforms to book-shape.ttl
 [PASS] C1. every subject IRI lives in the data# namespace  (0 outside)
 [PASS] C2. no illegal characters in any IRI  (0 bad)
@@ -21,9 +21,14 @@
 [PASS] F2. dataset record: every contact point is a mailto: link
 [PASS] F3. dataset record: identifier is https://w3id.org/FAIR-course-UT/2026/group23/dataset
 [WARN] dataset record: no source (dcterms:source, the Kaggle link). The FDP schema needs a field for it
-[SKIP] F4 (original CSV distribution)  (the file did not parse, see A)
-[SKIP] F5 (RDF distribution)  (the file did not parse, see A)
+[PASS] F4. original CSV distribution: title, licence, identifier, download and access URL are https://w3id.org/FAIR-course-UT/2026/group23/distribution/original-csv
+[WARN] original CSV distribution: media type 'CSV' is text, it should be a link that starts with https://www.iana.org/assignments/media-types/
+[WARN] original CSV distribution: the file format is written with dcat:format, the DCAT standard uses dcterms:format
+[PASS] F5. RDF distribution: title, licence, identifier, download and access URL are https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl
+[WARN] RDF distribution: media type 'https://www.iana.org/assignments/media-types/text/turtle' is text, it should be a link that starts with https://www.iana.org/assignments/media-types/
+[WARN] RDF distribution: the file format is written with dcat:format, the DCAT standard uses dcterms:format
 [PASS] F6. the redirect rules test both distribution links
+[WARN] RDF distribution: no byte size stated (data/rdf/library.ttl has 2662894 bytes)
 
 Self-test: each broken record below MUST be rejected
 [PASS] E. a correct sample book is accepted
@@ -48,7 +53,5 @@ Self-test: each broken record below MUST be rejected
 [PASS] E. FDP check rejects: distribution that carries the other distribution's identifier
 [PASS] E. FDP check rejects: wrong byte size
 
-1 warning(s). They are not failures: they list what the FAIR Data Point schemas still need.
-2 check(s) FAILED:
-  - A. metadata/distribution-original-csv.ttl parses
-  - A. metadata/distribution-rdf.ttl parses
+6 warning(s). They are not failures: they list what the FAIR Data Point schemas still need.
+All checks passed.
