@@ -1,9 +1,12 @@
 [PASS] A. ontology/library-ontology.ttl parses  (70 triples)
-[PASS] A. data/rdf/library.ttl parses  (37172 triples)
+[PASS] A. data/rdf/library.ttl parses  (39890 triples)
 [PASS] A. shapes/book-shape.ttl parses  (79 triples)
 [PASS] A. shapes/dataset-shape.ttl parses  (111 triples)
 [PASS] A. shapes/distribution-shape.ttl parses  (87 triples)
-[PASS] A. metadata/dataset-record.ttl parses  (49 triples)
+[PASS] A. shapes/test-fixtures/dataset-record-draft.ttl parses  (47 triples)
+[PASS] A. metadata/dataset-record.ttl parses  (44 triples)
+[FAIL] A. metadata/distribution-original-csv.ttl parses  (line 35: newline found in string literal)
+[FAIL] A. metadata/distribution-rdf.ttl parses  (line 35: newline found in string literal)
 [PASS] B. library.ttl conforms to book-shape.ttl
 [PASS] C1. every subject IRI lives in the data# namespace  (0 outside)
 [PASS] C2. no illegal characters in any IRI  (0 bad)
@@ -12,8 +15,15 @@
 [PASS] C5. catalogue positions are unique  (2077 values)
 [PASS] C6. each book IRI is built from its catalogue position  (0 mismatches)
 [PASS] C7. number of books equals number of CSV rows  (2077 vs 2077)
-[PASS] D. dataset-record.ttl conforms to Dataset and Distribution shapes
-[PASS] D2. dcat:byteSize of the RDF distribution equals the real file size  (metadata says 2492380, file has 2492380)
+[PASS] C8. every author node belongs to at least one book  (0 orphans)
+[PASS] D. the example record conforms to the Dataset and Distribution shapes
+[PASS] F1. dataset record: title, description, licence, publisher, keywords, landing page, theme, language
+[PASS] F2. dataset record: every contact point is a mailto: link
+[PASS] F3. dataset record: identifier is https://w3id.org/FAIR-course-UT/2026/group23/dataset
+[WARN] dataset record: no source (dcterms:source, the Kaggle link). The FDP schema needs a field for it
+[SKIP] F4 (original CSV distribution)  (the file did not parse, see A)
+[SKIP] F5 (RDF distribution)  (the file did not parse, see A)
+[PASS] F6. the redirect rules test both distribution links
 
 Self-test: each broken record below MUST be rejected
 [PASS] E. a correct sample book is accepted
@@ -23,11 +33,22 @@ Self-test: each broken record below MUST be rejected
 [PASS] E. book rejected: language in capitals
 [PASS] E. book rejected: author as plain text
 [PASS] E. book rejected: bad catalogue position
-[PASS] E. metadata rejected: dataset without licence
-[PASS] E. metadata rejected: dataset without keywords
-[PASS] E. metadata rejected: distribution without media type
-[PASS] E. metadata rejected: distribution without download URL
-[PASS] E. metadata rejected: media type as plain text
-[PASS] E. metadata rejected: wrong byte size
+[PASS] E. shapes reject: dataset without licence
+[PASS] E. shapes reject: dataset without keywords
+[PASS] E. shapes reject: distribution without media type
+[PASS] E. shapes reject: distribution without download URL
+[PASS] E. shapes reject: media type as plain text
+[PASS] E. data rejected: author node without a book
+[PASS] E. a correct FDP dataset record is accepted
+[PASS] E. a correct FDP distribution record is accepted
+[PASS] E. FDP check rejects: contact point without mailto:
+[PASS] E. FDP check rejects: identifier that holds a long text instead of one link
+[PASS] E. FDP check rejects: dataset without licence
+[PASS] E. FDP check rejects: download link that is not the W3ID link
+[PASS] E. FDP check rejects: distribution that carries the other distribution's identifier
+[PASS] E. FDP check rejects: wrong byte size
 
-All checks passed.
+1 warning(s). They are not failures: they list what the FAIR Data Point schemas still need.
+2 check(s) FAILED:
+  - A. metadata/distribution-original-csv.ttl parses
+  - A. metadata/distribution-rdf.ttl parses

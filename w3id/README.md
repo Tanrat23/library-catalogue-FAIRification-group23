@@ -34,6 +34,11 @@ The rules and tests are in `w3id/rules/FAIR-course-UT/2026/group23/`, in the sam
 
 ## Testing the addresses after they are live
 
-- In a terminal: `curl -sI https://w3id.org/FAIR-course-UT/2026/group23/ont`. You should see a 302 and a `location:` line with the raw GitHub file.
-- To follow every hop: `curl -sIL https://w3id.org/FAIR-course-UT/2026/group23/ont`.
+An address makes three hops: w3id.org sends it to the course relay (`fair-testbed.eemcs.utwente.nl`), the relay applies our `.htaccess` rules and sends it to GitHub, and GitHub sends a file address on to `raw.githubusercontent.com`.
+
+- One address, all hops: `curl -sIL https://w3id.org/FAIR-course-UT/2026/group23/ont | grep -i "^HTTP\|^location"`. The last line must be `HTTP/2 200`.
+- All nine addresses: `for p in "" ont data dataset distribution/original-csv distribution/ttl shapes/dataset shapes/distribution shapes/book; do echo "== $p"; curl -sIL "https://w3id.org/FAIR-course-UT/2026/group23/$p" | grep -i "^HTTP\|^location"; done`
+- Without `-L` you only see the first hop (to the relay), which is normal.
 - In a browser: https://fair-testbed.eemcs.utwente.nl/pid-manager/resolve
+
+Result on 23 October 2026: pull request #33 was merged by the course bot, and all nine addresses ended with `HTTP/2 200`.

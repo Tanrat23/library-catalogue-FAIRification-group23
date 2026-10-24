@@ -183,7 +183,9 @@ def main():
             if lk:
                 stats["linked_books"] += 1
                 g.add((book, SCHEMA.sameAs, URIRef(f"https://openlibrary.org/works/{lk['work_key']}")))
-                if lk.get("author_key") and r["author"].strip() and " & " not in r["author"]:
+                # link the author only when the book really has that author (not for "Anonymous" or "A & B")
+                if (lk.get("author_key") and r["author"].strip() and " & " not in r["author"]
+                        and r["author"].strip().lower() not in UNKNOWN_AUTHOR):
                     g.add((get_author(r["author"].strip()), SCHEMA.sameAs,
                            URIRef(f"https://openlibrary.org/authors/{lk['author_key']}")))
 

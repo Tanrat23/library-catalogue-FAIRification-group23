@@ -1,0 +1,57 @@
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+# ---------------------------------------------------------------------------
+# TEST EXAMPLE, not the real record.
+# This is Person 2's hand-written draft of the FAIR Data Point records (1 Dataset + 2 Distributions).
+# The real records are the FAIR Data Point exports in metadata/ (made by Person 1).
+# scripts/validate.py keeps this file for one job: to prove that shapes/dataset-shape.ttl and
+# shapes/distribution-shape.ttl accept a complete record and reject a broken one (self-tests).
+# The byte size is left out on purpose, so no number in this file can become outdated.
+# ---------------------------------------------------------------------------
+
+<https://w3id.org/FAIR-course-UT/2026/group23/dataset> a dcat:Dataset ;
+    dcterms:title "Library Catalogue Dataset (FAIRified)"@en ;
+    dcterms:description "A library catalogue of 2,077 books cleaned from the Kaggle 'Library Catalog' dataset and published as RDF (Schema.org plus a small library ontology), with persistent W3ID identifiers. The unchanged original CSV is the second distribution."@en ;
+    dcterms:identifier <https://w3id.org/FAIR-course-UT/2026/group23/dataset> ;
+    dcterms:license <https://spdx.org/licenses/MIT> ;
+    dcterms:publisher [ a foaf:Agent ; foaf:name "Group 23, FAIR Data Engineering, University of Twente" ] ;
+    dcterms:issued "2026-10-22"^^xsd:date ;
+    dcterms:source <https://www.kaggle.com/datasets/neramarkovi/library-catalog> ;
+    dcterms:conformsTo <https://w3id.org/FAIR-course-UT/2026/group23/ont> ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ,
+        <http://id.loc.gov/vocabulary/iso639-1/fr> ,
+        <http://id.loc.gov/vocabulary/iso639-1/de> ,
+        <http://id.loc.gov/vocabulary/iso639-1/es> ,
+        <http://id.loc.gov/vocabulary/iso639-1/ru> ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/EDUC> ;
+    dcat:keyword "library" , "catalogue" , "books" , "FAIR" , "Schema.org" ;
+    dcat:landingPage <https://github.com/Tanrat23/library-catalogue-FAIRification-group23> ;
+    dcat:contactPoint <mailto:p.v.thakkar@student.utwente.nl> ;
+    dcat:distribution <https://w3id.org/FAIR-course-UT/2026/group23/distribution/original-csv> ,
+        <https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl> .
+
+<https://w3id.org/FAIR-course-UT/2026/group23/distribution/original-csv> a dcat:Distribution ;
+    dcterms:title "Original catalogue as downloaded (CSV)"@en ;
+    dcterms:description "The unchanged Kaggle file, kept so every cleaning step can be traced back to its input. 2,104 rows, 18 columns."@en ;
+    dcterms:identifier <https://w3id.org/FAIR-course-UT/2026/group23/distribution/original-csv> ;
+    dcterms:license <https://spdx.org/licenses/MIT> ;
+    dcterms:issued "2026-10-22"^^xsd:date ;
+    dcat:accessURL <https://w3id.org/FAIR-course-UT/2026/group23/distribution/original-csv> ;
+    dcat:downloadURL <https://w3id.org/FAIR-course-UT/2026/group23/distribution/original-csv> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/CSV> .
+
+<https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl> a dcat:Distribution ;
+    dcterms:title "Catalogue as RDF (Turtle)"@en ;
+    dcterms:description "The cleaned catalogue as linked data: one resource per book, author, genre and section, described with Schema.org and the library ontology."@en ;
+    dcterms:identifier <https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl> ;
+    dcterms:license <https://spdx.org/licenses/MIT> ;
+    dcterms:issued "2026-10-22"^^xsd:date ;
+    dcterms:conformsTo <https://w3id.org/FAIR-course-UT/2026/group23/ont> ;
+    dcat:accessURL <https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl> ;
+    dcat:downloadURL <https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> .
