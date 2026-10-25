@@ -25,11 +25,13 @@ The cleaning decisions, field definitions and validation results are documented 
 
 ## 4. Repository structure
 
-- `data/original/` — original dataset, cleaned tabular dataset and RDF/Turtle representation of the catalogue
-- `ontology/` — project-specific ontology
-- `metadata-schemas/` — Dataset and Distribution metadata schemas
-- `fdp-metadata/` — exported FAIR Data Point metadata records
+- `data` — original dataset, cleaned tabular dataset and RDF/Turtle representation of the catalogue
 - `documentation/` — cleaning methodology and evaluation
+- `metadata/` —  metadata schemas exported from FDP.
+- `ontology/` — project-specific ontology
+- `scripts/` — python scripts related to execution of project requirements
+- `shapes/` — dataset and distribution metadata schemas
+- `w3id/` — W3ID rules and identifiers
 - `report/` — final project report
 
 ## 5. Semantic model and persistent identifiers
@@ -37,18 +39,15 @@ The cleaning decisions, field definitions and validation results are documented 
 **Group number:** 23
 
 **Ontology:**
-https://w3id.org/FAIR-course-UT/2025-2026/group23/ont
+[https://w3id.org/FAIR-course-UT/2025-2026/group23/ont](https://w3id.org/FAIR-course-UT/2026/group23/ont#)
 
 **Data namespace:**
-https://w3id.org/FAIR-course-UT/2025-2026/group23/data#
+[https://w3id.org/FAIR-course-UT/2025-2026/group23/data#](https://w3id.org/FAIR-course-UT/2026/group23/data# 	)
 
-These are the planned identifiers. Their resolution status will be documented after the W3ID redirects have been configured and tested.
 
 ## 6. Metadata publication
 
-The Dataset and Distribution metadata will be published through a FAIR Data Point.
-
-FDP URL: [Add once available]
+The Dataset and Distribution metadata has been created using a FAIR Data Point locally.
 
 ## 7. Interoperability
 
@@ -56,13 +55,9 @@ The project will investigate linking catalogue records with an external bibliogr
 
 External dataset: Open Library
 
-Integration findings: [Add results after testing]
-
 ## 8. License and attribution
 
 Original dataset source and license: [MIT](https://www.mit.edu/~amini/LICENSE.md)
-
-License applicable to the project's own documentation and other created artifacts: [Add the licence agreed upon by the group]
 
 ## 9. Citation
 
