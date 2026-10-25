@@ -96,6 +96,10 @@ Integration findings:
 
 Original dataset source and license: [MIT](https://www.mit.edu/~amini/LICENSE.md)
 
+Licences of the project's own files (full text in [`LICENSE`](LICENSE)):
+
+- **MIT:** `data/`, `metadata/`, `scripts/` and `w3id/`
+- **CC BY 4.0:** `ontology/`, `shapes/`, `documentation/` and the README files ([https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/))
 ## 9. Citation
 
 **Dataset source**
