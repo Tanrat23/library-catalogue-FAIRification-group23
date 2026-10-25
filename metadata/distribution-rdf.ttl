@@ -18,8 +18,8 @@
   dcterms:title "Catalogue as RDF (Turtle)";
   dcat:accessURL <https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl>;
   dcat:downloadURL <https://w3id.org/FAIR-course-UT/2026/group23/distribution/ttl>;
-  dcat:format "https://publications.europa.eu/resource/authority/file-type/RDF_TURTLE;";
-  dcat:mediaType "https://www.iana.org/assignments/media-types/text/turtle";
+  dcterms:format <http://publications.europa.eu/resource/authority/file-type/CSV>;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv>;
   dcat:version "1.0";
   <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/distribution/e45d2a4e-f664-43ef-bdf0-077521a86c99#identifier>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Catalogue as RDF (Turtle)";
