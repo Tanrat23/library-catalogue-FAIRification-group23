@@ -21,6 +21,7 @@
   dcterms:title "Library Catalogue Dataset (FAIRified)";
   dcat:contactPoint <mailto:p.v.thakkar@student.utwente.nl>;
   dcat:keyword "FAIR", "Schema.org", "books", "catalogue", "library";
+  dcterms:source <https://www.kaggle.com/datasets/neramarkovi/library-catalog>;
   dcat:landingPage <https://github.com/Tanrat23/library-catalogue-FAIRification-group23>;
   dcat:theme <http://publications.europa.eu/resource/authority/data-theme/EDUC>;
   dcat:version "1.0";
